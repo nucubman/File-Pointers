@@ -1,0 +1,38 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+
+
+
+
+
+main() {
+
+	FILE *f = fopen("C:\\Users\\Student\\Desktop\\Mission 1.txt", "r");
+	fseek(f, 0, SEEK_END);
+	int size = ftell(f);
+	rewind(f);
+	char *text = malloc(size + 1);
+	fread(text, size, 1, f);
+	fclose(f);
+	text[size] = '\0';
+	printf("%s\n ", text);
+
+	int k = 0;
+	int s = 0;
+	while (size >= 0) {
+		int t = text[size] - '0'; // '0' gamoiyeneba imistvis ro davakonvertirot charidan intze ! 
+		int p = pow(2, k); // pow - xarisxi ayvanis funqcia ! 
+		s += t*p;// s cvladis daxmarebit emateba ertmanets elementebi! 
+		k++;// xarisxebi
+
+		size--;// elementebi 
+		
+
+	}
+	printf("%d\n ", s);
+	getchar();
+}
+
